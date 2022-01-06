@@ -1,2 +1,5 @@
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
+train.info(), test.info() #Know the details of the data which will help in data cleaning
+train_copy = train.copy() #Keep a copy of the original train data
+test_copy = test.copy() #Keep a copy of the original test data
