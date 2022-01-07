@@ -11,3 +11,8 @@ sns.countplot(x = 'Sex', hue = 'Survived', data = train)
 train['Embarked'] = train['Embarked'].fillna(train['Embarked'].mode()[0])
 plt.figure(figsize=(10, 8))
 sns.countplot(x = 'Embarked', hue = 'Survived', data = train)
+
+data_names = train['Name']
+train = train.drop(['Name','PassengerId'], axis = 1) # dropping name and passengerId for the train data
+test_id = test['PassengerId'] # save passenger Id to a variable (test data)
+test = test.drop('PassengerId', axis = 1)
