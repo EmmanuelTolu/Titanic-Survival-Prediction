@@ -24,3 +24,20 @@ def transform_parch(data):
     return out
 
 train['Parch'] = train['Parch'].apply(transform_parch).astype(int)
+
+
+def fare_bin(x):
+    out = 0
+    if x > 0 and x<= 80:
+        out = 0
+    else:
+        out = 1
+    return out
+train['Fare'] = train['Fare'].apply(fare_bin)
+test['Fare'] = test['Fare'].apply(fare_bin)
+train['Fare'] = train['Fare'].astype(int)
+test['Fare'] = test['Fare'].astype(int)
+
+sns.countplot(x = 'Fare', hue = 'Survived', data = train)
+
+train['Fare'] = train['Fare'].fillna(train['Fare'].mode()[0])
