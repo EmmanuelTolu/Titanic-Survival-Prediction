@@ -1,0 +1,13 @@
+plt.figure(figsize=(20, 8))
+sns.countplot(x = 'Age', hue = 'Survived', data = train)
+
+train['Age'].mean(), train['Age'].median()
+train = train.drop(['Cabin'], axis = 1)
+train['Age'] = train['Age'].fillna(train['Age'].median())
+
+plt.figure(figsize=(10, 8))
+sns.countplot(x = 'Sex', hue = 'Survived', data = train)
+
+train['Embarked'] = train['Embarked'].fillna(train['Embarked'].mode()[0])
+plt.figure(figsize=(10, 8))
+sns.countplot(x = 'Embarked', hue = 'Survived', data = train)
