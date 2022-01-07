@@ -1,0 +1,26 @@
+def trans_age(value):
+    if value >= 15 and value <= 54:
+        out = 0
+    else:
+        out = 1
+    return out
+
+train['Age'] = train['Age'].apply(trans_age).astype(int)
+
+def encode(data):
+    if data == 'male':
+        return 0
+    else:
+        return 1
+    
+train['Sex'] = train['Sex'].apply(encode)
+
+def transform_parch(data):
+    out = 0
+    if data == 0:
+        out = 0
+    else:
+        out = 1
+    return out
+
+train['Parch'] = train['Parch'].apply(transform_parch).astype(int)
