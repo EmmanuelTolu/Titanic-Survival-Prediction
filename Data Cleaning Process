@@ -26,3 +26,5 @@ train = train.drop('Ticket', axis = 1)
 train = pd.get_dummies(train, columns = ['Sex'])
 sns.countplot(x = 'Parch', hue = 'Survived', data = train)
 train['Parch'] = train['Parch'].apply(transform_parch).astype(int)
+y = train['Survived']
+X = train.drop('Survived', axis = 1)
