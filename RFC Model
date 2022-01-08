@@ -1,0 +1,12 @@
+rand = RandomForestClassifier(random_state = 42) # algorithm instantiation
+rand.fit(X_train, y_train) # model learning
+ 
+print('Training score is: ',rand.score(X_train, y_train))
+
+pred = rand.predict(X_test)
+
+print('Testing score is: ',accuracy_score(y_test, pred))
+
+f1_score(y_test, pred)
+
+#classification_report(y_test, pred)
