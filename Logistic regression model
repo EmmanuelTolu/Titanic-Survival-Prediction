@@ -1,0 +1,13 @@
+lr = LogisticRegression()
+lr.fit(X_train, y_train)
+
+pred = lr.predict(X_test) 
+
+trainscore = lr.score(X_train, y_train)
+
+testscore = accuracy_score(y_test, pred)
+
+print(trainscore)
+print(testscore)
+
+f1_score(y_test, pred)
