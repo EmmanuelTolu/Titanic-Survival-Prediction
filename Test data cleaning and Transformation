@@ -1,0 +1,17 @@
+test.info()
+test = test.drop(['Cabin'], axis = 1)
+test['Age'] = test['Age'].fillna(test['Age'].median())
+test['Embarked'] = test['Embarked'].fillna(test['Embarked'].mode()[0])
+test['Age'] = test['Age'].apply(trans_age).astype(int)
+    
+test['Sex'] = test['Sex'].apply(encode)
+data_names1 = test['Name']
+
+test = test.drop('Name', axis = 1) # dropping name and passengerId for the test data
+test = pd.get_dummies(test, columns = ['Embarked'])
+test = pd.get_dummies(test, columns = ['Pclass'])
+test = pd.get_dummies(test, columns = ['SibSp'])
+test = test.drop('Ticket', axis = 1)
+test = pd.get_dummies(test, columns = ['Sex'])
+test['Parch'] = test['Parch'].apply(transform_parch).astype(int)
+test['Fare'] = test['Fare'].fillna(train['Fare'].mode()[0])
