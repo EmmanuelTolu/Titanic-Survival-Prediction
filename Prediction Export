@@ -3,3 +3,9 @@ frame_dict['PassengerId'] = test_id
 frame_dict['Survived'] = random_forest_prediction
 frame = pd.DataFrame(frame_dict)
 frame.to_csv('rand.csv', index= False)
+
+frame_dict = {}
+frame_dict['PassengerId'] = test_id
+frame_dict['Survived'] = logistic_regression_prediction
+frame = pd.DataFrame(frame_dict)
+frame.to_csv('lr.csv', index= False)
