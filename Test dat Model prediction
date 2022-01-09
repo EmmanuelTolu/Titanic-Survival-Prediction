@@ -1,0 +1,2 @@
+random_forest_prediction= rand.predict(test)
+logistic_regression_prediction= lr.predict(test)
