@@ -14,6 +14,7 @@ sns.countplot(x = 'Embarked', hue = 'Survived', data = train)
 
 data_names = train['Name']
 train = train.drop(['Name','PassengerId'], axis = 1) # dropping name and passengerId for the train data
+
 test_id = test['PassengerId'] # save passenger Id to a variable (test data)
 test = test.drop('PassengerId', axis = 1)
 
@@ -24,8 +25,10 @@ sns.countplot(x = 'SibSp', hue = 'Survived', data = train)
 train = pd.get_dummies(train, columns = ['SibSp'])
 train = train.drop('Ticket', axis = 1)
 train = pd.get_dummies(train, columns = ['Sex'])
+
 sns.countplot(x = 'Parch', hue = 'Survived', data = train)
 train['Parch'] = train['Parch'].apply(transform_parch).astype(int)
+
 y = train['Survived']
 X = train.drop('Survived', axis = 1)
 
